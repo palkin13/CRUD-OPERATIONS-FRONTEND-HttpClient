@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CrudOperation_HttpClient_.Models.ReadRecordViewModel.ReadRecordData>
+
+@{
+    ViewData["Title"] = "Read";
+}
+
+<h5>All Records - </h5>
+<hr />
+
+<div>
+    <a asp-action="Create">Create New Record</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+               @*  @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) | *@
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

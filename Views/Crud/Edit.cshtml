@@ -1,0 +1,55 @@
+﻿@model List<CrudOperation_HttpClient_.Models.GetRecordViewModel.GetRecordDataId>
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h5>Edit the Record</h5>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+                @foreach (var item in Model)
+                {
+                    <div class="form-group">
+                        <label asp-for="@item.Id" class="control-label"></label>
+                        <input name="Id" class="form-control" value="@item.Id"/>
+                        <span asp-validation-for="@item.Id" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="@item.UserName" class="control-label"></label>
+                        <input name="UserName" class="form-control" value="@item.UserName"  />
+                        <span asp-validation-for="@item.UserName" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="@item.Age" class="control-label"></label>
+                    <input name="Age" class="form-control" value="@item.Age" />
+                        <span asp-validation-for="@item.Age" class="text-danger"></span>
+                    </div>
+                }
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+
+        
+
+                
+          
+           
+      </form>
+      
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Read">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
